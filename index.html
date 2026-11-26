@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Que sigui èpic, que sigui peli · Emilio i Ari · 10.10.2027</title>
+<meta name="description" content="Emilio i Ariadna es casen el diumenge 10 d’octubre del 2027 a DBlanc, a peu de la platja de l’Astillero, Malgrat de Mar.">
+<meta name="theme-color" content="#0c0b09">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Syne:wght@700;800&display=swap">
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('mov')</script>
+<style>
+:root{
+  --sala:#0c0b09; --pantalla:#1a1814; --linia:rgb(243 230 200 / .12);
+  --crema:#f3e6c8; --crema-2:#c9bda5; --meta:#9a9081;
+  --coure:#c45a2b; --coure-text:#e07a47;
+  --disp:"Syne",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1); --ease-mask:cubic-bezier(.16,1,.3,1);
+  --t-in:900ms; --t-mask:1000ms; --t-fos:1400ms; --t-fb:200ms;
+  --vora:24px; --eix:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--sala);color:var(--crema);-webkit-text-size-adjust:100%}
+body{font-family:var(--mono);font-size:15px;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--coure-text);outline-offset:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.salta{position:absolute;left:var(--vora);top:-100px;background:var(--crema);color:var(--sala);padding:12px 16px;z-index:50}
+.salta:focus{top:12px}
+.rol{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--meta)}
+.pendent{display:inline-block;font-family:var(--mono);font-size:12px;font-style:normal;letter-spacing:0;text-transform:none;color:var(--crema-2);border:1px dashed var(--meta);padding:2px 8px;margin-left:4px;vertical-align:middle;line-height:1.5}
+.exemple{border-left:1px dashed var(--meta);padding-left:12px}
+/* màscara: la línia puja des de sota d'un tall invisible (només transform) */
+.masc{display:block;overflow:hidden;padding-block:.12em;margin-block:-.12em}
+.masc>span{display:block}
+
+/* capçalera */
+.cap{position:fixed;inset:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:16px var(--vora);z-index:20;mix-blend-mode:difference;pointer-events:none}
+.cap .marca{font-family:var(--disp);font-weight:800;font-size:14px;letter-spacing:.02em}
+.cap .tc{font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:.08em}
+
+/* 00 obertura */
+.obertura{position:relative;height:100svh;min-height:640px;display:grid;place-items:center;overflow:hidden;background:var(--pantalla)}
+.banda{position:absolute;left:0;right:0;height:11svh;background:var(--sala);z-index:3}
+.banda.dalt{top:0;transform-origin:top}.banda.baix{bottom:0;transform-origin:bottom}
+.horitzo{position:absolute;left:0;right:0;top:64%;height:36%;background:var(--sala);z-index:2;border-top:1px solid var(--linia)}
+/* reflex del sol a l'aigua: franges de coure, cada cop més curtes */
+.reflex{position:absolute;left:50%;top:14px;display:grid;justify-items:center;gap:9px;transform:translateX(-50%)}
+.reflex i{display:block;height:2px;background:var(--coure);transform-origin:center}
+.reflex i:nth-child(1){width:min(44vw,280px);opacity:.55}
+.reflex i:nth-child(2){width:min(30vw,190px);opacity:.4}
+.reflex i:nth-child(3){width:min(18vw,110px);opacity:.28}
+.reflex i:nth-child(4){width:min(8vw,48px);opacity:.18}
+.sol{position:absolute;left:50%;top:64%;width:min(56vw,340px);aspect-ratio:1;margin-left:calc(min(56vw,340px) / -2);margin-top:calc(min(56vw,340px) / -2);border-radius:50%;background:var(--coure);z-index:1;will-change:transform}
+.presenta{position:absolute;inset:0;z-index:5;display:none;place-items:center;font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,6vw,2.5rem);color:var(--crema);pointer-events:none}
+.titol{position:relative;z-index:4;text-align:center;padding:0 var(--vora);margin-top:-8svh;will-change:transform}
+.titol .pre{display:block;margin-bottom:24px}
+.titol h1{font-weight:400;line-height:.9}
+.titol .l1{font-family:var(--disp);font-weight:800;font-size:clamp(3.25rem,16vw,11rem);letter-spacing:-.055em;text-transform:uppercase}
+.titol .l1b{font-size:clamp(4rem,21vw,15rem);letter-spacing:-.06em;line-height:.82}
+.titol .l2{font-family:var(--serif);font-style:italic;font-size:clamp(2.75rem,12vw,9rem);letter-spacing:-.02em;line-height:1}
+.peu-obertura{position:absolute;z-index:4;left:0;right:0;bottom:calc(11svh + 20px);display:flex;flex-direction:column;align-items:center;gap:12px;padding:0 var(--vora)}
+.estrena{font-size:13px;letter-spacing:.06em;text-align:center;color:var(--crema-2)}
+.estrena b{font-weight:500;color:var(--crema)}
+.accio{display:flex;gap:24px;align-items:center}
+.boto{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;background:var(--crema);color:var(--sala);font-family:var(--mono);font-weight:500;font-size:14px;letter-spacing:.04em;text-decoration:none;border-radius:2px;transition:transform var(--t-fb) var(--ease),opacity var(--t-fb) var(--ease)}
+.boto:hover{opacity:.88}.boto:active{transform:scale(.98)}
+.enllac{display:inline-flex;align-items:center;min-height:44px;font-size:14px;text-underline-offset:4px}
+.enllac:hover{color:var(--coure-text)}
+
+/* seccions: claqueta */
+.sec{padding:112px var(--vora);max-width:1264px;margin:0 auto}
+.sec-cap{display:grid;grid-template-columns:auto 1fr;column-gap:20px;align-items:end;border-top:1px solid var(--linia);padding-top:20px;margin-bottom:56px}
+.sec-cap .esc{display:grid;line-height:1}
+.sec-cap .esc b{font-family:var(--disp);font-weight:800;font-size:clamp(3.5rem,16vw,7rem);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px var(--crema-2);line-height:.8;margin-top:8px;font-variant-numeric:tabular-nums}
+.sec-cap h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.75rem,7vw,3.25rem);letter-spacing:-.035em;line-height:.95;padding-bottom:4px}
+.sec-cap .pendent{grid-column:1/-1;justify-self:start;margin:16px 0 0}
+
+/* 01 crèdits: l'eix central del cinema (rol a la dreta, nom a l'esquerra) */
+.credits{display:grid;gap:40px;text-align:center}
+.credit{display:grid;gap:6px}
+.credit dd{font-family:var(--serif);font-size:clamp(2rem,8.5vw,3.5rem);line-height:1.02}
+.credit dd small{display:block;font-family:var(--mono);font-size:14px;color:var(--crema-2);margin-top:10px;line-height:1.5}
+
+/* intermedi: visor */
+.intermedi{text-align:center;padding:112px var(--vora);border-block:1px solid var(--linia);background:var(--pantalla)}
+.visor{position:relative;display:inline-block;padding:28px clamp(16px,5vw,56px) 24px;margin-top:24px}
+.visor::before,.visor::after{content:"";position:absolute;width:28px;height:28px;border:0 solid var(--crema-2)}
+.visor::before{top:0;left:0;border-top-width:1px;border-left-width:1px}
+.visor::after{bottom:0;right:0;border-bottom-width:1px;border-right-width:1px}
+.xifres{display:flex;justify-content:center;align-items:flex-start;gap:clamp(4px,2vw,24px);font-variant-numeric:tabular-nums}
+.xifres div{display:grid;gap:8px}
+.xifres strong{font-family:var(--disp);font-weight:800;font-size:clamp(2.75rem,13vw,8rem);line-height:.9;letter-spacing:-.05em}
+.xifres .dos{font-family:var(--disp);font-weight:700;font-size:clamp(2.75rem,13vw,8rem);line-height:.9;color:var(--meta)}
+.intermedi .lema{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,4.5vw,1.75rem);color:var(--crema-2);margin-top:24px}
+
+/* 02 història: preses */
+.presa{padding:48px 0;border-bottom:1px solid var(--linia)}
+.presa .num{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--meta);letter-spacing:.14em;text-transform:uppercase}
+.presa p.frase{font-family:var(--serif);font-size:clamp(2.25rem,10vw,4.5rem);line-height:1;margin-top:16px;max-width:14ch}
+.presa p.nota{margin-top:20px;color:var(--crema-2);max-width:44ch}
+
+/* 03 plató */
+.plato{display:grid;gap:48px}
+.fitxa div{display:grid;grid-template-columns:7.5rem 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--linia)}
+.fitxa dd{color:var(--crema)}
+.fitxa dd span{color:var(--crema-2)}
+.dbl{font-family:var(--disp);font-weight:800;font-size:clamp(4rem,21vw,10rem);letter-spacing:-.065em;line-height:.85;margin-left:-.04em}
+.plato .intro{font-family:var(--serif);font-size:clamp(1.375rem,4.8vw,2rem);line-height:1.25;margin-top:24px;max-width:28ch}
+.accions{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:24px}
+
+/* 04 ordre de rodatge */
+.rodatge{list-style:none}
+.rodatge li{display:grid;grid-template-columns:5.5rem 1fr;gap:16px;padding:24px 0;border-bottom:1px solid var(--linia);align-items:baseline}
+.rodatge .hora{font-family:var(--disp);font-weight:700;font-size:22px;font-variant-numeric:tabular-nums;color:var(--meta);letter-spacing:-.02em}
+.rodatge h3{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,8vw,3.5rem);line-height:1}
+.vestuari{display:grid;gap:28px;margin-top:72px}
+.vestuari h3{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1;margin:6px 0 6px}
+.vestuari p{color:var(--crema-2)}
+
+/* 05 entrada */
+.entrada{display:grid;background:var(--crema);color:var(--sala);border-radius:4px;max-width:760px;position:relative}
+.entrada .cos{padding:32px 24px}
+.entrada .rol{color:#5d554a}
+.entrada h3{font-family:var(--serif);font-weight:400;font-size:clamp(2.5rem,10vw,4rem);line-height:.95;margin:12px 0 16px;letter-spacing:-.01em}
+.entrada p{color:#3a342c}
+.entrada .talo{position:relative;padding:24px;border-top:2px dashed rgb(12 11 9 / .3);display:grid;gap:16px}
+.entrada .talo::before,.entrada .talo::after{content:"";position:absolute;width:24px;height:24px;border-radius:50%;background:var(--sala);top:-13px}
+.entrada .talo::before{left:-12px}.entrada .talo::after{right:-12px}
+.entrada .talo dl{display:flex;gap:24px;flex-wrap:wrap}
+.entrada .talo dd{font-family:var(--disp);font-weight:800;font-size:28px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.entrada .boto{background:var(--sala);color:var(--crema)}
+.entrada .enllac{color:var(--sala)}
+.entrada .pendent{color:#3a342c;border-color:#5d554a}
+
+/* crèdits finals */
+.final{padding:160px var(--vora) 64px;text-align:center}
+.rodet{display:grid;gap:28px;max-width:960px;margin:0 auto 128px}
+.rodet div{display:grid;gap:4px}
+.rodet dd{font-family:var(--serif);font-size:clamp(1.5rem,6vw,2.25rem);line-height:1.1}
+.final .fi{font-family:var(--serif);font-style:italic;font-size:clamp(6rem,30vw,16rem);line-height:.8}
+.final .signa{margin-top:32px;color:var(--crema-2)}
+.final .proto{margin-top:48px;font-size:12px;color:var(--meta)}
+
+/* moviment: només transform i opacity, una sola vegada */
+.mov .banda{transform:scaleY(0);animation:banda 1100ms var(--ease) 150ms forwards}
+.mov .presenta{display:grid;opacity:0;animation:presenta 1300ms var(--ease) 250ms forwards}
+.mov .sol{opacity:0;animation:sol 1800ms var(--ease) 500ms forwards}
+.mov .reflex i{transform:scaleX(0);animation:reflex 1200ms var(--ease) forwards}
+.mov .reflex i:nth-child(1){animation-delay:1100ms}.mov .reflex i:nth-child(2){animation-delay:1180ms}.mov .reflex i:nth-child(3){animation-delay:1260ms}.mov .reflex i:nth-child(4){animation-delay:1340ms}
+.mov .titol .pre,.mov .peu-obertura{opacity:0;animation:fos var(--t-in) var(--ease) forwards}
+.mov .titol .pre{animation-delay:1450ms}.mov .peu-obertura{animation-delay:2150ms}
+.mov .titol .masc>span{transform:translateY(105%);animation:puja var(--t-mask) var(--ease-mask) forwards}
+.mov .titol .masc:nth-child(1)>span{animation-delay:1500ms}
+.mov .titol .masc:nth-child(2)>span{animation-delay:1620ms}
+.mov .titol .masc:nth-child(3)>span{animation-delay:1800ms}
+@keyframes banda{to{transform:scaleY(1)}}
+@keyframes presenta{0%{opacity:0}30%{opacity:1}70%{opacity:1}100%{opacity:0}}
+@keyframes sol{from{opacity:0;transform:translateY(40%)}to{opacity:1;transform:none}}
+@keyframes reflex{to{transform:scaleX(1)}}
+@keyframes fos{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes puja{to{transform:none}}
+/* en scroll: els crèdits es fonen (opacitat), els títols pugen per la màscara */
+.mov .fos{opacity:0;transition:opacity var(--t-fos) var(--ease)}
+.mov .fos.dins{opacity:1}
+.mov .sec-cap .masc>span,.mov .revela-masc>span{transform:translateY(105%);transition:transform var(--t-mask) var(--ease-mask)}
+.mov .dins .masc>span,.mov .revela-masc.dins>span{transform:none}
+.mov .entrada.fos{opacity:0;transform:translateY(32px) rotate(-1.5deg);transition:opacity var(--t-in) var(--ease),transform var(--t-mask) var(--ease-mask)}
+.mov .entrada.fos.dins{opacity:1;transform:none}
+
+@media (min-width:960px){
+  :root{--vora:48px}
+  .banda{height:12.5vh}
+  .titol{margin-top:-11vh}
+  .titol .l1{font-size:min(9vw,9.5rem)}
+  .titol .l1b{font-size:min(15vw,15rem)}
+  .titol .l2{font-size:min(7vw,8rem);margin-top:-.08em}
+  .peu-obertura{flex-direction:row;justify-content:space-between;bottom:calc(12.5vh + 24px)}
+  .estrena{text-align:left}
+  .sec{padding:176px var(--vora)}
+  .sec-cap{grid-template-columns:12rem 1fr}
+  /* eix central: rol alineat a la dreta, nom a l'esquerra */
+  .credits,.rodet{gap:44px}
+  .credit,.rodet div{grid-template-columns:1fr 1fr;column-gap:calc(var(--eix) * 2);align-items:baseline;text-align:left}
+  .credit dt,.rodet dt{text-align:right}
+  .preses{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .presa{border-bottom:0;border-top:1px solid var(--linia);padding:24px 0 0}
+  .presa:nth-child(2){margin-top:96px}.presa:nth-child(3){margin-top:192px}
+  .presa p.frase{font-size:clamp(2.25rem,3.4vw,3.5rem)}
+  .plato{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:end;gap:96px}
+  .plato .dbl{font-size:min(6.8vw,8rem)}
+  .rodatge li{grid-template-columns:12rem 1fr}
+  .rodatge .hora{font-size:32px}
+  .vestuari{grid-template-columns:repeat(3,1fr);gap:48px}
+  .entrada{grid-template-columns:1fr 240px;margin-left:12rem}
+  .entrada .cos{padding:48px}
+  .entrada .talo{border-top:0;border-left:2px dashed rgb(12 11 9 / .3);align-content:space-between;padding:48px 32px}
+  .entrada .talo::before{top:-12px;left:-13px}.entrada .talo::after{top:auto;bottom:-12px;left:-13px;right:auto}
+  .entrada .talo dl{flex-direction:column;gap:16px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="salta" href="#credits">Salta als crèdits</a>
+
+<header class="cap" aria-hidden="true">
+  <span class="marca">E&amp;A</span>
+  <span class="tc" id="tc">T– 10.10.2027</span>
+</header>
+
+<main>
+  <!-- 00 · Card de títol -->
+  <section class="obertura" aria-labelledby="titol">
+    <div class="banda dalt" aria-hidden="true"></div>
+    <div class="sol" id="sol" aria-hidden="true"></div>
+    <div class="horitzo" aria-hidden="true"><div class="reflex"><i></i><i></i><i></i><i></i></div></div>
+    <p class="presenta" aria-hidden="true">L’Emilio i l’Ari presenten</p>
+    <div class="titol" id="titolcard">
+      <span class="pre rol">Una pel·lícula de l’Emilio i l’Ari</span>
+      <h1 id="titol"><span class="masc l1"><span>Que sigui</span></span><span class="masc l1 l1b"><span>èpic,</span></span><span class="masc l2"><span>que sigui peli</span></span></h1>
+    </div>
+    <div class="peu-obertura">
+      <p class="estrena"><b>Estrena</b> diumenge, 10 d’octubre del 2027 a DBlanc, Malgrat de Mar</p>
+      <div class="accio">
+        <a class="boto" id="ics" download="boda-emilio-ari.ics" href="#">Guarda la data</a>
+        <a class="enllac" href="#plato">On és</a>
+      </div>
+    </div>
+    <div class="banda baix" aria-hidden="true"></div>
+  </section>
+
+  <!-- 01 · Crèdits d'obertura -->
+  <section class="sec" id="credits" aria-labelledby="h-credits">
+    <div class="sec-cap fos"><span class="esc rol" aria-hidden="true">Esc.<b>01</b></span><h2 id="h-credits" class="masc"><span>Crèdits d’obertura</span></h2></div>
+    <dl class="credits">
+      <div class="credit fos"><dt class="rol">Protagonistes</dt><dd>Emilio i Ariadna</dd></div>
+      <div class="credit fos"><dt class="rol">Data</dt><dd><time datetime="2027-10-10">10 d’octubre del 2027</time><small>Diumenge</small></dd></div>
+      <div class="credit fos"><dt class="rol">Localització</dt><dd>DBlanc<small>A peu de la platja de l’Astillero, Malgrat de Mar</small></dd></div>
+      <div class="credit fos"><dt class="rol">Hora</dt><dd>Per confirmar<small>La posarem aquí tan bon punt la sapiguem <span class="pendent">Pendent</span></small></dd></div>
+    </dl>
+  </section>
+
+  <!-- Intermedi · compte enrere -->
+  <section class="intermedi" aria-labelledby="h-falten">
+    <h2 id="h-falten" class="rol">Intermedi · Falten</h2>
+    <div class="visor">
+      <div class="xifres" aria-live="off">
+        <div><strong id="cd-d">–</strong><span class="rol">dies</span></div>
+        <span class="dos" aria-hidden="true">:</span>
+        <div><strong id="cd-h">–</strong><span class="rol">hores</span></div>
+        <span class="dos" aria-hidden="true">:</span>
+        <div><strong id="cd-m">–</strong><span class="rol">minuts</span></div>
+      </div>
+    </div>
+    <p class="lema">per a l’estrena</p>
+  </section>
+
+  <!-- 02 · La història -->
+  <section class="sec historia" aria-labelledby="h-historia">
+    <div class="sec-cap fos"><span class="esc rol" aria-hidden="true">Esc.<b>02</b></span><h2 id="h-historia" class="masc"><span>La història</span></h2><span class="pendent">Text d’exemple</span></div>
+    <div class="preses">
+      <article class="presa fos"><span class="num"><span>Presa 1</span><span aria-hidden="true">1/3</span></span><p class="frase">El primer pla</p><p class="nota exemple">Com ens vam conèixer. Text per escriure per l’Emilio i l’Ari.</p></article>
+      <article class="presa fos"><span class="num"><span>Presa 2</span><span aria-hidden="true">2/3</span></span><p class="frase">El gir de guió</p><p class="nota exemple">El moment que ho va canviar tot. Text per escriure.</p></article>
+      <article class="presa fos"><span class="num"><span>Presa 3</span><span aria-hidden="true">3/3</span></span><p class="frase">I ara, l’estrena</p><p class="nota exemple">Per què volem que sigui èpic. Text per escriure.</p></article>
+    </div>
+  </section>
+
+  <!-- 03 · El plató -->
+  <section class="sec" id="plato" aria-labelledby="h-plato">
+    <div class="sec-cap fos"><span class="esc rol" aria-hidden="true">Esc.<b>03</b></span><h2 id="h-plato" class="masc"><span>El plató</span></h2></div>
+    <div class="plato">
+      <div>
+        <p class="dbl revela-masc masc"><span>DBlanc</span></p>
+        <p class="intro fos">A peu de platja, a la platja de l’Astillero de Malgrat de Mar, davant de La Pilona.</p>
+        <div class="accions">
+          <a class="enllac" href="https://www.google.com/maps/search/?api=1&amp;query=DBlanc+Avinguda+dels+Pins+13+Malgrat+de+Mar" target="_blank" rel="noopener">Obre el mapa<span class="sr"> (s’obre en una pestanya nova)</span></a>
+          <a class="enllac" href="https://www.dblanc.es/" target="_blank" rel="noopener">Web de DBlanc<span class="sr"> (s’obre en una pestanya nova)</span></a>
+        </div>
+      </div>
+      <dl class="fitxa fos">
+        <div><dt class="rol">Adreça</dt><dd>Avinguda dels Pins, 13<br><span>08380 Malgrat de Mar (Barcelona)</span></dd></div>
+        <div><dt class="rol">En tren</dt><dd>Rodalies R1 fins a l’estació de Malgrat de Mar<br><span>De l’estació a DBlanc: temps a peu i transport</span> <span class="pendent">Pendent</span></dd></div>
+        <div><dt class="rol">En cotxe</dt><dd>Navegador: «Avinguda dels Pins, 13, Malgrat de Mar»<br><span>Aparcament: on és i si és gratuït</span> <span class="pendent">Pendent</span></dd></div>
+        <div><dt class="rol">Horaris</dt><dd><a class="enllac" href="https://rodalies.gencat.cat/" target="_blank" rel="noopener">Rodalies de Catalunya<span class="sr"> (s’obre en una pestanya nova)</span></a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 04 · Ordre de rodatge -->
+  <section class="sec" aria-labelledby="h-rodatge">
+    <div class="sec-cap fos"><span class="esc rol" aria-hidden="true">Esc.<b>04</b></span><h2 id="h-rodatge" class="masc"><span>Ordre de rodatge</span></h2></div>
+    <ol class="rodatge">
+      <li class="fos"><span class="hora" aria-label="Hora per confirmar">--:--</span><h3>Cerimònia <span class="pendent">Pendent</span></h3></li>
+      <li class="fos"><span class="hora" aria-label="Hora per confirmar">--:--</span><h3>Banquet <span class="pendent">Pendent</span></h3></li>
+      <li class="fos"><span class="hora" aria-label="Hora per confirmar">--:--</span><h3>Festa <span class="pendent">Pendent</span></h3></li>
+    </ol>
+    <div class="vestuari">
+      <div class="fos exemple"><span class="rol">Vestuari</span><h3>Calçat per a la sorra</h3><p>Els talons fins s’enfonsen. Millor sabata plana, espardenyes o sandàlies.</p></div>
+      <div class="fos exemple"><span class="rol">Vestuari</span><h3>Vent de mar</h3><p>A tocar de l’aigua sol bufar. Tingues-ho en compte amb els teixits lleugers.</p></div>
+      <div class="fos exemple"><span class="rol">Vestuari</span><h3>Nit d’octubre</h3><p>Quan es pon el sol, refresca. Porta una jaqueta o un xal per a la festa.</p></div>
+    </div>
+    <p class="rol" style="margin-top:24px">Vestuari: <span class="pendent">Text d’exemple</span></p>
+  </section>
+
+  <!-- 05 · Entrada / RSVP -->
+  <section class="sec" id="entrada" aria-labelledby="h-entrada">
+    <div class="sec-cap fos"><span class="esc rol" aria-hidden="true">Esc.<b>05</b></span><h2 id="h-entrada" class="masc"><span>La teva entrada</span></h2></div>
+    <article class="entrada fos">
+      <div class="cos">
+        <span class="rol">Sessió única a la platja de l’Astillero</span>
+        <h3>Que sigui èpic, que sigui peli</h3>
+        <p>La confirmació d’assistència arribarà aquí mateix. De moment, guarda’t la data al calendari.</p>
+        <p style="margin-top:12px"><span class="pendent">Formulari pendent</span></p>
+        <div class="accions">
+          <a class="boto" id="ics2" download="boda-emilio-ari.ics" href="#">Guarda la data</a>
+          <a class="enllac" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Boda+Emilio+i+Ariadna&amp;dates=20271010%2F20271011&amp;details=Que+sigui+%C3%A8pic%2C+que+sigui+peli.+DBlanc%2C+Malgrat+de+Mar.&amp;location=DBlanc%2C+Avinguda+dels+Pins+13%2C+08380+Malgrat+de+Mar" target="_blank" rel="noopener">Google Calendar<span class="sr"> (s’obre en una pestanya nova)</span></a>
+        </div>
+      </div>
+      <div class="talo">
+        <dl>
+          <div><dt class="rol">Data</dt><dd>10.10</dd></div>
+          <div><dt class="rol">Any</dt><dd>2027</dd></div>
+          <div><dt class="rol">Sala</dt><dd>DBlanc</dd></div>
+        </dl>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="final" aria-labelledby="h-final">
+  <h2 id="h-final" class="sr">Crèdits finals</h2>
+  <dl class="rodet">
+    <div class="fos"><dt class="rol">Protagonistes</dt><dd>Emilio i Ariadna</dd></div>
+    <div class="fos"><dt class="rol">Repartiment</dt><dd>La família i els amics</dd></div>
+    <div class="fos"><dt class="rol">Localització</dt><dd>DBlanc, Malgrat de Mar</dd></div>
+    <div class="fos"><dt class="rol">Estrena</dt><dd>Diumenge, 10 d’octubre del 2027</dd></div>
+  </dl>
+  <p class="fi revela-masc masc" aria-label="Fi"><span>Fi</span></p>
+  <p class="signa">Una producció de l’Emilio i l’Ariadna</p>
+  <p class="proto">Prototip de disseny v4.1. Les marques amb vora discontínua són contingut pendent o d’exemple.</p>
+</footer>
+
+<script>
+(()=>{
+  // .ics en data URI (un sol fitxer)
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Emilio i Ariadna//Boda//CA","BEGIN:VEVENT","UID:boda-emilio-ariadna-20271010","DTSTAMP:20261126T000000Z","DTSTART;VALUE=DATE:20271010","DTEND;VALUE=DATE:20271011","SUMMARY:Boda Emilio i Ariadna","DESCRIPTION:Que sigui èpic\\, que sigui peli. DBlanc\\, Malgrat de Mar.","LOCATION:DBlanc\\, Avinguda dels Pins 13\\, 08380 Malgrat de Mar","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const u="data:text/calendar;charset=utf-8,"+encodeURIComponent(ics);
+  document.querySelectorAll('#ics,#ics2').forEach(a=>a.href=u);
+
+  // compte enrere (s'actualitza cada minut)
+  const fi=new Date('2027-10-10T00:00:00+02:00');
+  const $=id=>document.getElementById(id),p2=n=>String(n).padStart(2,'0');
+  function compte(){
+    const ms=Math.max(0,fi-new Date()),d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60;
+    $('cd-d').textContent=d;$('cd-h').textContent=p2(h);$('cd-m').textContent=p2(m);
+    $('tc').textContent='T– '+d+'d '+p2(h)+'h';
+  }
+  compte();setInterval(compte,6e4);
+
+  if(!document.documentElement.classList.contains('mov'))return;
+  // revelats en entrar a la vista (una sola vegada)
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('dins');io.unobserve(e.target)}}),{rootMargin:'0px 0px -14% 0px'});
+  document.querySelectorAll('.fos,.revela-masc').forEach(el=>{
+    const germans=[...el.parentElement.children].filter(c=>c.classList.contains('fos'));
+    el.style.transitionDelay=(Math.max(0,germans.indexOf(el))%4)*140+'ms';io.observe(el)});
+  // el sol es pon i el títol s'allunya amb el scroll
+  const sol=$('sol'),tit=$('titolcard'),ob=document.querySelector('.obertura');let tick=false;
+  addEventListener('scroll',()=>{if(tick)return;tick=true;requestAnimationFrame(()=>{
+    const p=Math.min(1,Math.max(0,scrollY/ob.offsetHeight));
+    sol.style.animation='none';sol.style.opacity=1;sol.style.transform='translateY('+(p*70)+'%)';
+    tit.style.transform='translateY('+(p*-14)+'vh) scale('+(1-p*.06)+')';tit.style.opacity=1-p*1.1;
+    tick=false})},{passive:true});
+})();
+</script>
+</body>
+</html>
