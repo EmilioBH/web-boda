@@ -199,6 +199,15 @@ a{color:inherit}
   .entrada .talo::before{top:-12px;left:-13px}.entrada .talo::after{top:auto;bottom:-12px;left:-13px;right:auto}
   .entrada .talo dl{flex-direction:column;gap:16px}
 }
+/* mòbil i tauleta: que res no sobresurti de l'amplada de pantalla */
+@media (max-width:959px){
+  html{overflow-x:hidden}
+  .visor{max-width:100%;padding-inline:clamp(12px,4vw,56px)}
+  .xifres strong,.xifres .dos{font-size:clamp(2rem,10.5vw,8rem)}
+  .dbl{font-size:clamp(2.75rem,15vw,10rem)}
+  .fitxa div{grid-template-columns:6.5rem minmax(0,1fr);gap:12px}
+  .fitxa dd{min-width:0;overflow-wrap:break-word}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
